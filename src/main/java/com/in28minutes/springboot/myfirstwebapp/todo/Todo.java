@@ -9,7 +9,7 @@ public class Todo {
 	private String username;
 	private boolean done;
 
-	public Todo(int id, String description, LocalDate targetDate, String username, boolean done) {
+	public Todo(int id, String username, LocalDate targetDate, String description, boolean done) {
 		super();
 		this.id = id;
 		this.description = description;
