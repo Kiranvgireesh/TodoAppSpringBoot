@@ -17,16 +17,18 @@ public class TodoService {
 	
 	
 	static {
-		todos.add(new Todo(++todosCount, "TODOAPP",LocalDate.now().plusYears(1), 
+		todos.add(new Todo(++todosCount, "kiran",LocalDate.now().plusYears(1), 
 							"Learn AWS", false ));
-		todos.add(new Todo(++todosCount, "TODOAPP",LocalDate.now().plusYears(2), 
+		todos.add(new Todo(++todosCount, "kiran",LocalDate.now().plusYears(2), 
 				"Learn DevOps", false ));
-		todos.add(new Todo(+todosCount, "TODOAPP",LocalDate.now().plusYears(3), 
+		todos.add(new Todo(+todosCount, "kiran",LocalDate.now().plusYears(3), 
 				"Learn Full Stack Development", false ));
 	}
 	
 	public List<Todo> findByUsername(String username){
-		return todos;
+		Predicate<? super Todo> predicate = 
+				todo -> todo.getUsername().equalsIgnoreCase(username);
+		return todos.stream().filter(predicate).toList();
 	}
 	public void addTodo(String username, String description, LocalDate targetDate, boolean done) {
 	
